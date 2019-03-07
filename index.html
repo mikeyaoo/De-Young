@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+
+<meta name="description" content="">
+<meta name="generator" content="Grapedrop">
+
+<!-- Apple Stuff -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<!-- Google / Search Engine Tags -->
+<meta itemprop="description" content="">
+<meta itemprop="image" content="">
+
+<!-- Facebook Meta Tags -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="">
+<meta property="og:description" content="">
+<meta property="og:image" content="">
+<meta property="og:url" content="http://bb2e1f0.grapedrop.com">
+
+<!-- Twitter Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+
+        
+        <link rel="icon" type="image/png" href="images/favicon.png">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/lory.js/2.2.0/lory.min.js"></script>
+
+        
+        
+          <link rel="stylesheet" href="styles/base.css">
+          <link rel="stylesheet" href="styles/style.css">
+          
+    </head>
+
+    <body>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                overflow-x: hidden;
+            }
+        </style>
+        <body><section class="gpd-section" id="iy6h"><div class="gpd-container" id="iigy"><div id="ifr4"><span style="color:null;">Grammy Awards</span></div></div></section><div id="ia1g"></div><section class="gpd-section" id="in1vg"><div class="gpd-container" id="i3ddi"><img id="ivvpx" src="images/1e94fd8a5e6f4ff3be64de99482c4fad_dress.jpg"/><div id="i4h3a">This is a dress from the muslim designer show at the De Young Museum</div><div id="iunuk">Designer Alisha Creates Showstopping gown for the DeYoung Fashion Show</div><div id="itfyi">This dress was off the charts. impressive and awesome. I was really stoked to be there to see it. I was so stoked that I photgraphed it.</div><div id="ivzon"></div><div id="ipyf2">01-10-19</div></div></section></body>
+        
+
+                    <style>
+    .page-brand-badge {
+        display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    .page-brand-badge {
+        position: fixed !important;
+        bottom: 10px !important;
+        right: 10px !important;
+        border-radius: 3px;
+        background-color: white;
+        box-shadow: 0 0 0 1px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.1);
+        padding: 5px 7px;
+        font-family: Helvetica, sans-serif;
+        font-size: 12px;
+        text-decoration: none;
+        color: #555;
+        transition: box-shadow 0.25s;
+    }
+    .page-brand-badge:hover {
+        box-shadow: 0 0 0 1px rgba(0,0,0,0.1), 0 3px 10px rgba(0,0,0,0.1);
+    }
+
+</style>
+            </body>
+
+    <script>
+        var formStateName = 'data-form-state';
+        var formStateEls = $('[' + formStateName + ']');
+        formStateEls.hide();
+        $('form').submit(function(e) {
+            e.preventDefault();
+            var form = $(this);
+            var action = (this.getAttribute('action') || '').trim();
+            var formData = new FormData(this);
+            var chkSelected = {};
+            var name = this.getAttribute('name');
+            name && formData.append('__name', name);
+
+            form.find('[type=radio], [type=checkbox]').each(function(item) {
+                var chkName = this.name;
+                if (this.checked) {
+                    chkSelected[chkName] = 1;
+                    return;
+                }
+                chkSelected[chkName] = 0;
+            });
+
+            for (var chk in chkSelected) {
+                if (!chkSelected[chk]) {
+                    formData.append(chk, '');
+                }
+            }
+
+            $.ajax({
+                url: action,
+                method: 'POST',
+                processData: false,
+                contentType: false,
+                data: formData,
+            }).done(function(data) {
+                formStateEls.hide();
+                form.find('> *').fadeOut();
+                form.find('[' + formStateName + '=success]').stop(1).fadeIn();
+            }).fail(function(data) {
+                formStateEls.hide();
+                form.find('[' + formStateName + '=error]').stop(1).fadeIn().delay(3000).fadeOut();
+            });
+        });
+    </script>
+</html>
